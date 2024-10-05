@@ -15,6 +15,9 @@ app = Flask(__name__)
 
 # Путь для сохранения аватаров
 UPLOAD_FOLDER = 'static/uploads'
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 DB_FILE = 'db.json'
 
@@ -252,9 +255,29 @@ def add_bonus_points():
 
     save_db(data)
 
+@app.route('/top', methods=['GET'])
+def top():
+    # Загружаем базу данных
+    data = load_db()
+
+    # Получаем значение из формы поиска
+    search_query = request.args.get('search', '').lower()
+
+    # Если есть запрос на поиск, фильтруем команды по названию
+    if search_query:
+        filtered_teams = [team for team in data if search_query in team['team_name'].lower()]
+    else:
+        # Если запроса нет, выводим все команды
+        filtered_teams = data
+
+    # Сортируем команды по количеству очков (от большего к меньшему)
+    sorted_teams = sorted(filtered_teams, key=lambda team: team['points'], reverse=True)
+
+    # Отправляем отсортированные данные в шаблон
+    return render_template('top.html', teams=sorted_teams)
+
+
 # Расписание задачи на 12 октября в 19:00
-
-
 def schedule_task():
     # Установим точную дату и время
     target_date = datetime(2024, 10, 12, 19, 0)

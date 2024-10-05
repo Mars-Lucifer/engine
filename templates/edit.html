@@ -210,7 +210,7 @@
             <!-- Выпадающее меню для изменения статуса заданий -->
             <select id="task" name="task">
               <option value="">Выберите задание</option>
-              {% for i in range(team.tasks|length - 1) %}
+              {% for i in range(team.tasks|length) %}
               <!-- Исключаем последнее техническое задание -->
               <option value="{{ i + 1 }}">
                 {% if team.tasks[i][0] == 1 %} ✅ {{ team.tasks[i][1] }}
