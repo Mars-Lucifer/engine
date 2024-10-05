@@ -15,8 +15,8 @@
             <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
-        <a href="" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
-        <a href="" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/top" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/pok" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
         </div>
     </div>
     <div class="screen_one">
@@ -32,96 +32,127 @@
         </div>
         <!-- Начало -->
 
-        <form method="GET" action="/top">
-            <input type="text" name="search" placeholder="Введите название команды" value="{{ request.args.get('search', '') }}">
-            <button type="submit">Найти</button>
+        <form method="GET" action="/top" class="search-form">
+            <input class="search" type="text" name="search" placeholder="Поиск команды" value="{{ request.args.get('search', '') }}">
         </form>
+        
 
         {% for i in range(0, teams|length, 2) %}
             <div class="row">
                 <!-- Первая команда в строке -->
-                <div class="block">
-                    <div class="box-20 box-top">
-                        <h1>{{ teams[i]['team_name'] }}</h1>
-                        <a class="points"><span class="red_text">{{ teams[i]['points'] }}</span> очков</a>
-                    </div>
-                    <div class="box-20">
-                        <p><span class="red_text">{{ teams[i]['tasks'] | selectattr("0", "equalto", 1) | list | length }}</span> заданий</p>
-                        <div class="box_task">
-                            {% for task in teams[i]['tasks'] %}
-                                {% if task[0] == 1 %}  {# Красный кружок #}
-                                    <div class="box_task_point box_task_point__red"></div>
-                                    {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
-                                        <div class="box_task_line box_task_line__red"></div>
+                <div class="block string">
+                    <div class="main">
+                        <div class="box-20 box-top">
+                            <h1>{{ teams[i]['team_name'] }}</h1>
+                            <a class="points"><span class="red_text">{{ teams[i]['points'] }}</span> очков</a>
+                        </div>
+                        <div class="box-20">
+                            <p class="nowrap"><span class="red_text">{{ teams[i]['tasks'] | selectattr("0", "equalto", 1) | list | length }}</span> заданий</p>
+                            <div class="box_task">
+                                {% for task in teams[i]['tasks'] %}
+                                    {% if task[0] == 1 %}  {# Красный кружок #}
+                                        <div class="box_task_point box_task_point__red"></div>
+                                        {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
+                                            <div class="box_task_line box_task_line__red"></div>
+                                        {% endif %}
+                                    {% else %}  {# Серый кружок #}
+                                        <div class="box_task_point box_task_point__gray"></div>
+                                        {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
+                                            <div class="box_task_line box_task_line__gray"></div>
+                                        {% endif %}
                                     {% endif %}
-                                {% else %}  {# Серый кружок #}
-                                    <div class="box_task_point box_task_point__gray"></div>
-                                    {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
-                                        <div class="box_task_line box_task_line__gray"></div>
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        </div>                        
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="box-20 box-bottom">
                         <div class="pokemon_circe_box">
                             {% if teams[i]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый покемон #}
                                 <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="makimalator">
+                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
-                            
+                    
                             {% if teams[i]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
                                 <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="makimalator">
+                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
                         </div>
-                        <p><span class="red_text">{{ teams[i]['pokemons'] | select("equalto", 1) | list | length }}</span> покемона</p>
+                    
+                        {# Получаем количество покемонов #}
+                        {% set pokemon_count = teams[i]['pokemons'] | select("equalto", 1) | list | length | int %}
+                    
+                        {# Выводим текст с правильным склонением слова "покемон" #}
+                        <p class="black nowrap"><span class="red_text">{{ pokemon_count }}</span> 
+                        {% if pokemon_count == 1 %}
+                            покемон
+                        {% elif pokemon_count == 2 %}
+                            покемона
+                        {% else %}
+                            покемонов
+                        {% endif %}
+                        </p>
                     </div>                    
                 </div>
 
                 <!-- Вторая команда в строке, если существует -->
                 {% if i + 1 < teams|length %}
-                <div class="block">
-                    <div class="box-20 box-top">
-                        <h1>{{ teams[i + 1]['team_name'] }}</h1>
-                        <a class="points"><span class="red_text">{{ teams[i + 1]['points'] }}</span> очков</a>
-                    </div>
-                    <div class="box-20">
-                        <p><span class="red_text">{{ teams[i + 1]['tasks'] | selectattr("0", "equalto", 1) | list | length }}</span> заданий</p>
-                        <div class="box_task">
-                            {% for task in teams[i + 1]['tasks'] %}
-                                {% if task[0] == 1 %}  {# Красный кружок #}
-                                    <div class="box_task_point box_task_point__red"></div>
-                                    {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
-                                        <div class="box_task_line box_task_line__red"></div>
+                <div class="block string">
+                    <div class="main">
+                        <div class="box-20 box-top">
+                            <h1>{{ teams[i + 1]['team_name'] }}</h1>
+                            <a class="points"><span class="red_text">{{ teams[i + 1]['points'] }}</span> очков</a>
+                        </div>
+                        <div class="box-20">
+                            <p class="nowrap"><span class="red_text">{{ teams[i + 1]['tasks'] | selectattr("0", "equalto", 1) | list | length }}</span> заданий</p>
+                            <div class="box_task">
+                                {% for task in teams[i + 1]['tasks'] %}
+                                    {% if task[0] == 1 %}  {# Красный кружок #}
+                                        <div class="box_task_point box_task_point__red"></div>
+                                        {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
+                                            <div class="box_task_line box_task_line__red"></div>
+                                        {% endif %}
+                                    {% else %}  {# Серый кружок #}
+                                        <div class="box_task_point box_task_point__gray"></div>
+                                        {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
+                                            <div class="box_task_line box_task_line__gray"></div>
+                                        {% endif %}
                                     {% endif %}
-                                {% else %}  {# Серый кружок #}
-                                    <div class="box_task_point box_task_point__gray"></div>
-                                    {% if not loop.last %}  {# Проверяем, не последний ли элемент #}
-                                        <div class="box_task_line box_task_line__gray"></div>
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                     <div class="box-20 box-bottom">
                         <div class="pokemon_circe_box">
                             {% if teams[i + 1]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый покемон #}
                                 <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="makimalator">
+                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
-                            
+                    
                             {% if teams[i + 1]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
                                 <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="makimalator">
+                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
                         </div>
-                        <p><span class="red_text">{{ teams[i + 1]['pokemons'] | select("equalto", 1) | list | length }}</span> покемона</p>
+                    
+                        {# Получаем количество покемонов и приводим его к целому числу #}
+                        {% set pokemon_count = teams[i + 1]['pokemons'] | select("equalto", 1) | list | length | int %}
+                    
+                        {# Выводим текст с правильным склонением слова "покемон" #}
+                        <p class="black nowrap"><span class="red_text">{{ pokemon_count }}</span> 
+                        {% if pokemon_count == 1 %}
+                            покемон
+                        {% elif pokemon_count > 1 and pokemon_count < 5 %}
+                            покемона
+                        {% else %}
+                            покемонов
+                        {% endif %}
+                        </p>
                     </div>
+                    
                 </div>
                 {% else %}
                 <!-- Если второй команды нет, добавляем пустой блок -->

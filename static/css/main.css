@@ -633,11 +633,46 @@ select::-ms-expand {
     justify-content: center;
 }
 
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.search {
+    border-radius: 100px;
+    border: 3px solid #EDF0F5;
+    width: 100%;
+    padding: 22px 32px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
 .box-20 {
     display: flex;
     width: 100%;
     gap: 20px;
     align-items: center;
+    flex-wrap: nowrap;
+}
+
+.block .box-20 {
+    justify-content: space-between;
+}
+
+.points {
+    display: flex;
+    padding: 26px 32px;
+    gap: 8px;
+    background-color: #17181A;
+    border-radius: 32px;
+    color: #EDF0F5;
 }
 
 .box-top {
@@ -653,6 +688,7 @@ select::-ms-expand {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    flex-grow: 1;
 }
 
 .box_task_point {
@@ -667,6 +703,7 @@ select::-ms-expand {
     margin: 0 6px;
     border-radius: 100px;
 }
+
 
 .box_task_point__red {
     background-color: #DE3933;
@@ -683,7 +720,6 @@ select::-ms-expand {
 
 .pokemon_circe_box {
     display: flex;
-    gap: -20px;
     align-items: center;
 }
 
@@ -696,12 +732,20 @@ select::-ms-expand {
     background-color: #F3CECEB3;
     backdrop-filter: blur(3px);
     border: 3px #EDF0F5 solid;
+    z-index: 1; /* Второй покемон будет ниже по слою */
+}
+
+.pokemon_circle:first-child {
+    z-index: 2; /* Первый покемон будет сверху */
+    margin-right: -20px; /* Наложение второго покемона на первый */
 }
 
 .pokemon_circle img {
     height: 80px;
     aspect-ratio: 1;
 }
+
+
 
 @media (max-width: 1100px) {
     p {
@@ -997,6 +1041,95 @@ select::-ms-expand {
     .disp_off {
         display: flex;
     }
+
+    .main {
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .string {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .search {
+        border-radius: 100px;
+        border: 3px solid #EDF0F5;
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .box-20 {
+        display: flex;
+        width: 100%;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .box-top {
+        justify-content: space-between;
+    }
+
+    .box-bottom {
+        align-items: flex-end;
+        min-width: 20%;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .points {
+        display: flex;
+        padding: 20px 26px;
+        gap: 8px;
+        background-color: #17181A;
+        border-radius: 24px;
+        color: #EDF0F5;
+    }
+    
+    .box_task_line {
+        width: 100%;
+        height: 6px;
+        margin: 0 6px;
+        border-radius: 100px;
+    }
+    
+    .pokemon_circe_box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pokemon_circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 26px;
+        border-radius: 100px;
+        background-color: #F3CECEB3;
+        backdrop-filter: blur(3px);
+        border: 3px #EDF0F5 solid;
+        z-index: 1; /* Второй покемон будет ниже по слою */
+    }
+    
+    .pokemon_circle:nth-child(2){
+        margin-top: -20px; /* Наложение второго покемона на первый */
+        margin-right: 0;
+    }
+
+    .pokemon_circle:first-child {
+        z-index: 2;
+        margin-right: 0;
+    }
+
+    .pokemon_circle img {
+        height: 56px;
+        aspect-ratio: 1;
+    }
 }
 
 @media (max-width: 620px) {
@@ -1280,5 +1413,75 @@ select::-ms-expand {
 
     .avatar {
         width: 44px;
+    }
+
+    .main {
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .string {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search {
+        padding: 14px 18px;
+        font-size: 12px;
+    }
+    
+    .box-20 {
+        display: flex;
+        gap: 8px;
+    }
+
+    .box-bottom {
+        width: 100%;
+        align-items: flex-end;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .points {
+        display: flex;
+        padding: 14px 18px;
+        gap: 8px;
+        border-radius: 16px;
+    }
+
+    .box_task_point {
+        height: 10px;
+    }
+    
+    .box_task_line {
+        height: 2px;
+        margin: 0 2px;
+    }
+    
+    .pokemon_circe_box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .pokemon_circle {   
+        z-index: 1; /* Второй покемон будет ниже по слою */
+        padding: 8px;
+    }
+    
+    .pokemon_circle:nth-child(2){
+        margin-top: 0; /* Наложение второго покемона на первый */
+    }
+
+    .pokemon_circle:first-child {
+        z-index: 2; /* Первый покемон будет сверху */
+        margin-right: -20px; /* Наложение второго покемона на первый */
+        margin-bottom: 0;
+    }
+    
+    .pokemon_circle img {
+        height: 40px;
+        aspect-ratio: 1;
     }
 }
