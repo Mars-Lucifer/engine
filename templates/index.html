@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мероприятие</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='/icons/icon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="hamburger" id="hamburger">
+        <div class="frame_block">
+            <div class="frame">
+            <h1>Движок</h1>
+            <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
+        </div>
+        <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
+        <a href="" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        </div>
+    </div>
+    <div class="screen_one">
+        <div class="header">
+            <p class="hi">Привет! 👋 Я Движок, образовательная игра</p>
+            <div class="button_block">
+                <a href="/" class="way not_need">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
+                <a href="/top" class="way not_need_two">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
+                <button onclick="opens()" class="menu">Меню<img class="button_icon rotate" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt="стрелка"></button>
+                <a href="/pok" class="way not_need">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
+                <img src="{{ url_for('static', filename='/icons/logo.png') }}" alt="logo" class="logo">
+            </div>
+        </div>
+        <!-- Начало -->
+        <div class="row">
+            <a class="block">
+                <h1>О мероприятии</h1>
+                <p class="w100">Добро пожаловать на сайт мероприятия Движения первых! Здесь ты можешь узнать все фишки этого мероприятия</p>
+            </a>
+            <a class="block rating">
+                <h1 class="rating" >Рейтинг</h1>
+                <p class="w100">Это общий показатель прогресса команды, чем он больше - тем круче команда.<br>
+                    Рейтинг дается за выполнение заданий и ачивки</p>
+            </a>
+        </div>
+        <div class="row">
+            <a href="/pok" class="block">
+                <div class="title">
+                    <div class="title_text">
+                        <img class="pokemon_icon" src="{{ url_for('static', filename='/icons/pokemon.svg') }}" alt="pokemon">
+                        <h1>Покемоны</h1>
+                    </div>
+                    <div class="arrow">
+                        <img class="arrow_img" src="{{ url_for('static', filename='/icons/arrow_outward.svg') }}" alt="">
+                    </div>
+                </div>
+                <p class="w100">Это награды, дающиеся за дополнительные старания во время мероприятия. Они не просто дают прибавку рейтинга, но и открывают покемонов!</p>
+            </a>
+            <div class="block white_block invisible"></div>
+        </div>
+    </div>
+    <!-- Конец -->
+    <div class="footer">
+        <div class="left_block">
+            <div class="block bk_white">
+                <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+            </div>
+            <div class="block bk_white disp_off">
+                <h1>Разработчики</h1>
+                <a target="_blank" href="https://mars-lucifer.ru" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/luci.png') }}" alt="luci_ava">
+                    <div class="about_person">
+                        <p class="name"><b>Luci</b></p>
+                        <p class="job">Дизайнер</p>
+                    </div>
+                </a>
+                <a target="_blank" href="https://mars-lucifer.ru" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                    <div class="about_person">
+                        <p class="name"><b>Klaudy</b></p>
+                        <p class="job">Художник</p>
+                    </div>
+                </a>
+                <a target="_blank" href="https://t.me/Anaraket" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/anaraket.png') }}" alt="artem_ava">
+                    <div class="about_person">
+                        <p class="name"><b>Артем</b></p>
+                        <p class="job">Frontend</p>
+                    </div>
+                </a>
+            </div>
+            <div class="block bk_white">
+                <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+            </div>
+        </div>
+        <div class="block developer bk_white">
+            <h1>Разработчики</h1>
+            <a target="_blank" href="https://mars-lucifer.ru" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/luci.png') }}" alt="luci_ava">
+                <div class="about_person">
+                    <p class="name"><b>Luci</b></p>
+                    <p class="job">Дизайнер</p>
+                </div>
+            </a>
+            <a target="_blank" href="https://mars-lucifer.ru" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                <div class="about_person">
+                    <p class="name"><b>Klaudy</b></p>
+                    <p class="job">Художник</p>
+                </div>
+            </a>
+            <a target="_blank" href="https://t.me/Anaraket" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/anaraket.png') }}" alt="artem_ava">
+                <div class="about_person">
+                    <p class="name"><b>Artem</b></p>
+                    <p class="job">Frontend</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='/main.js') }}"></script>
+</body>
+</html>

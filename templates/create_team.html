@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тех страница</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='/icons/icon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="hamburger" id="hamburger">
+      <div class="frame_block">
+        <div class="frame">
+          <h1>Движок</h1>
+          <button type="button" onclick="closes()" class="menu">
+            Закрыть<img
+              class="button_icon"
+              src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}"
+              alt=""
+            />
+          </button>
+        </div>
+        <a href="/" class="way"
+          >Главная<img
+            class="arrow_red"
+            src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+            alt="стрелка"
+        /></a>
+        <a href="" class="way"
+          >Топ команд<img
+            class="arrow_red"
+            src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+            alt=""
+        /></a>
+        <a href="" class="way"
+          >Покемоны<img
+            class="arrow_red"
+            src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+            alt=""
+        /></a>
+      </div>
+    </div>
+    <form class="screen_one">
+      <div class="header">
+        <p class="hi">Это техническая страница</p>
+        <div class="button_block">
+          <a href="/" class="way not_need"
+            >Главная<img
+              class="arrow_red"
+              src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+              alt="стрелка"
+          /></a>
+          <a href="/top" class="way not_need_two"
+            >Топ команд<img
+              class="arrow_red"
+              src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+              alt="стрелка"
+          /></a>
+          <button type="button" onclick="opens()" class="menu">
+            Меню<img
+              class="button_icon rotate"
+              src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}"
+              alt="стрелка"
+            />
+          </button>
+          <a href="/pok" class="way not_need"
+            >Покемоны<img
+              class="arrow_red"
+              src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}"
+              alt="стрелка"
+          /></a>
+          <img
+            src="{{ url_for('static', filename='/icons/logo.png') }}"
+            alt="logo"
+            class="logo"
+          />
+        </div>
+      </div>
+      <!-- Начало -->
+
+      <h3 class="black">Создание команды</h3>
+
+      <div class="row">
+        <div class="block team_block">
+          <input
+            class="team-name"
+            type="text"
+            name="team_name"
+            id="team-name"
+            placeholder="Название"
+            required
+          />
+
+          <!-- Участник 1 -->
+          <div class="custom-file-upload">
+            <label for="avatar1" class="custom-label">
+              <img
+                src="{{ url_for('static', filename='/icons/add_photo_alternate.svg') }}"
+                alt="Upload Icon"
+              />
+            </label>
+            <input
+              id="avatar1"
+              type="file"
+              accept="image/*"
+              name="avatar1"
+              required
+            />
+            <input
+              type="text"
+              name="avatar1"
+              placeholder="Участник 1"
+              class="text-input"
+              required
+            />
+          </div>
+
+          <!-- Участник 2 -->
+          <div class="custom-file-upload">
+            <label for="avatar2" class="custom-label">
+              <img
+                src="{{ url_for('static', filename='/icons/add_photo_alternate.svg') }}"
+                alt="Upload Icon"
+              />
+            </label>
+            <input
+              id="avatar2"
+              type="file"
+              accept="image/*"
+              name="avatar2"
+              required
+            />
+            <input
+              type="text"
+              name="avatar2"
+              placeholder="Участник 2"
+              class="text-input"
+              required
+            />
+          </div>
+
+          <!-- Участник 3 -->
+          <div class="custom-file-upload">
+            <label for="avatar3" class="custom-label">
+              <img
+                src="{{ url_for('static', filename='/icons/add_photo_alternate.svg') }}"
+                alt="Upload Icon"
+              />
+            </label>
+            <input
+              id="avatar3"
+              type="file"
+              accept="image/*"
+              name="avatar3"
+              required
+            />
+            <input
+              type="text"
+              name="avatar3"
+              placeholder="Участник 3"
+              class="text-input"
+              required
+            />
+          </div>
+
+          <!-- Участник 4 -->
+          <div class="custom-file-upload">
+            <label for="avatar4" class="custom-label">
+              <img
+                src="{{ url_for('static', filename='/icons/add_photo_alternate.svg') }}"
+                alt="Upload Icon"
+              />
+            </label>
+            <input
+              id="avatar4"
+              type="file"
+              accept="image/*"
+              name="avatar4"
+              required
+            />
+            <input
+              type="text"
+              name="avatar4"
+              placeholder="Участник 4"
+              class="text-input"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Правая часть формы -->
+        <div class="block right space">
+          <div class="top">
+            <select id="competency" name="competency" required>
+              <option value="">Компетенция</option>
+              <option value="Эмоциональный интеллект">
+                Эмоциональный интеллект
+              </option>
+              <option value="Умение работать в команде">
+                Умение работать в команде
+              </option>
+              <option value="Коммуникабельность">Коммуникабельность</option>
+            </select>
+            <div>
+              <input
+                class="verification_code"
+                type="text"
+                id="verification-code"
+                name="verification_code"
+                placeholder="Код проверки"
+                required
+              />
+            </div>
+          </div>
+          <button class="btn btn_red" type="submit">
+            Создать команду<img
+              class="check"
+              src="{{ url_for('static', filename='/icons/check.svg') }}"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Конец -->
+    <div class="footer marg">
+      <div class="left_block">
+        <div class="block bk_white">
+          <h1>
+            При поддержке<br /><span class="red_text">Движения первых</span>
+          </h1>
+        </div>
+        <div class="block bk_white disp_off">
+          <h1>Разработчики</h1>
+          <a target="_blank" href="https://mars-lucifer.ru" class="person">
+            <img
+              class="avatar"
+              src="{{ url_for('static', filename='/img/luci.png') }}"
+              alt="luci_ava"
+            />
+            <div class="about_person">
+              <p class="name"><b>Luci</b></p>
+              <p class="job">Дизайнер</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://mars-lucifer.ru" class="person">
+            <img
+              class="avatar"
+              src="{{ url_for('static', filename='/img/klaudy.png') }}"
+              alt="luci_ava"
+            />
+            <div class="about_person">
+              <p class="name"><b>Klaudy</b></p>
+              <p class="job">Художник</p>
+            </div>
+          </a>
+          <a target="_blank" href="https://t.me/Anaraket" class="person">
+            <img
+              class="avatar"
+              src="{{ url_for('static', filename='/img/anaraket.png') }}"
+              alt="artem_ava"
+            />
+            <div class="about_person">
+              <p class="name"><b>Артем</b></p>
+              <p class="job">Frontend</p>
+            </div>
+          </a>
+        </div>
+        <div class="block bk_white">
+          <h1>
+            Сайт инициирован<br /><span class="green_text">Ирминсулем</span>
+          </h1>
+        </div>
+      </div>
+      <div class="block developer bk_white">
+        <h1>Разработчики</h1>
+        <a target="_blank" href="https://mars-lucifer.ru" class="person">
+          <img
+            class="avatar"
+            src="{{ url_for('static', filename='/img/luci.png') }}"
+            alt="luci_ava"
+          />
+          <div class="about_person">
+            <p class="name"><b>Luci</b></p>
+            <p class="job">Дизайнер</p>
+          </div>
+        </a>
+        <a target="_blank" href="https://mars-lucifer.ru" class="person">
+          <img
+            class="avatar"
+            src="{{ url_for('static', filename='/img/klaudy.png') }}"
+            alt="luci_ava"
+          />
+          <div class="about_person">
+            <p class="name"><b>Klaudy</b></p>
+            <p class="job">Художник</p>
+          </div>
+        </a>
+        <a target="_blank" href="https://t.me/Anaraket" class="person">
+          <img
+            class="avatar"
+            src="{{ url_for('static', filename='/img/anaraket.png') }}"
+            alt="artem_ava"
+          />
+          <div class="about_person">
+            <p class="name"><b>Artem</b></p>
+            <p class="job">Frontend</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      async function submitForm(event) {
+        event.preventDefault(); // Останавливаем стандартную отправку формы
+
+        // Получаем саму форму
+        const form = document.querySelector(".screen_one");
+
+        // Создаем объект FormData для отправки данных
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("/create", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            const result = await response.text();
+            console.log("Форма успешно отправлена", result);
+          } else {
+            console.error("Ошибка при отправке формы", response.statusText);
+          }
+        } catch (error) {
+          console.error("Ошибка сети", error);
+        }
+      }
+
+      // Добавляем обработчик отправки формы
+      document
+        .querySelector(".screen_one")
+        .addEventListener("submit", submitForm);
+
+      async function submitForm(event) {
+        event.preventDefault(); // Останавливаем стандартную отправку формы
+
+        const form = document.querySelector(".screen_one");
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("/create", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            const result = await response.text();
+            alert(result); // Показываем alert с результатом
+          } else {
+            console.error("Ошибка при отправке формы", response.statusText);
+          }
+        } catch (error) {
+          console.error("Ошибка сети", error);
+        }
+      }
+
+      // Добавляем обработчик отправки формы
+      document
+        .querySelector(".screen_one")
+        .addEventListener("submit", submitForm);
+    </script>
+
+    <script src="{{ url_for('static', filename='/main.js') }}"></script>
+  </body>
+</html>

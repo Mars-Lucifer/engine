@@ -1,0 +1,1215 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #F7F9FC;
+    width: 100%;
+}
+
+h1 {
+    font-family: "Montserrat", system-ui;
+    color: #17181A;
+    font-weight: 600;
+    font-size: 46px;
+}
+
+h3 {
+    font-family: "Montserrat", system-ui;
+    color: #F7F9FC;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6F7885;
+}
+
+a, button {
+    color: #6F7885;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.w100 {
+    width: 460px;
+}
+
+.screen_one {
+    padding: 36px;
+    gap: 20px;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hamburger {
+    position: absolute;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: transform 350ms ease, opacity 350ms ease;
+    z-index: 3;
+    display: none;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    height: 100%;
+    gap: 12px;
+    border-radius: 42px 0px 0px 42px;
+    padding: 32px;
+    background-color: #FFFFFF;
+}
+
+.show {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.frame_block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 26px;
+    align-items: start;
+    justify-content: start;
+}
+
+.frame {
+    gap: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDF0F5;
+    gap: 12px;
+    padding: 16px 24px 16px 24px;
+    border-radius: 100px;
+}
+
+.button_block {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_block .menu {
+    display: none;
+}
+
+.way {
+    display: flex;
+    gap: 16px;
+    padding: 22px 32px 22px 32px;
+    border: 3px #EDF0F5 solid;
+    border-radius: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.hi {
+    width: 302px;
+    color: #17181A;
+}
+
+.logo {
+    height: 76px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 24px 0px #DE393340;
+}
+
+.row {
+    height: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.members_row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.members_row img {
+    aspect-ratio: 1;
+    border-radius: 16px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    padding: 32px;
+    border-radius: 42px;
+    background-color: #EDF0F5;
+}
+
+.exp {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 26px;
+    background-color: #17181A;
+    border-radius: 24px;
+}
+
+.task_container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.circle {
+    background-color: #DE3933;
+    height: 18px;
+    aspect-ratio: 1;
+    border-radius: 100px;
+}
+
+.not_done .circle {
+    background-color: #6F7885;
+}
+
+.members_block {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.member img {
+    width: 100%;
+}
+
+.member p {
+    width: 100%;
+    text-align: center;
+}
+
+.pokemon_team {
+    overflow: hidden;
+    aspect-ratio: 3/1;
+    width: 100%;
+    border-radius: 24px;
+    padding: 26px;
+    justify-content: space-between;
+    display: flex;
+    background: linear-gradient(104.04deg, #FFD8B4 0%, #F26455 100%);
+    backdrop-filter: blur(13.794118881225586px)
+}
+
+.pokemon_team h1{
+    width: 340px;
+}
+
+.pokemon_team p {
+    width: 200px;
+}
+
+.pokemon_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    aspect-ratio: 1;
+    height: 120%;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: -1%;
+}
+
+.pokemon_img img {
+    width: 100%;
+}
+
+.elipse_team {
+    height: 38px;
+}
+
+
+
+.team_block {
+    gap: 12px;
+}
+
+.custom-file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+input[type="file"] {
+    display: none; /* Скрыть стандартный элемент */
+}
+
+.custom-label {
+    cursor: pointer;
+    display: flex;
+    border-radius: 20px;
+    padding: 18px;
+    gap: 10px;
+    background-color: #F7F9FC;
+}
+
+.custom-label img {
+    height: 32px; /* Высота иконки */
+    aspect-ratio: 1;
+}
+
+/* Оформление для текстового поля */
+.text-input {
+    font-size: 20px;
+    font-weight: 400;
+    border: none; /* Убираем рамки */
+    background-color: transparent; /* Прозрачный фон */
+    color: #000; /* Цвет текста */
+    width: 100%;
+}
+
+.text-input:focus {
+    outline: none; /* Убираем подсветку при фокусе */
+}
+
+.team-name {
+    font-size: 46px;
+    color: #DE3933;
+    font-weight: 600;
+}
+
+.team-name::placeholder {
+    color: #DE3933B3;
+}
+
+.right {
+    padding: 0;
+    gap: 0;
+    border-radius: 0;
+    background-color: #F7F9FC;
+    width: 100%;
+}
+
+.space {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Общие стили для select */
+select {
+    display: flex;
+    width: 100%;
+    padding: 32px;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 12px;
+    border: 1px solid #EDF0F5;
+    border-radius: 34px;
+    background-color: #EDF0F5; /* Задний фон, когда список закрыт */
+    color: #17181A;
+    appearance: none; /*Убираем стандартную стрелку */
+    background-image: url('/static/icons/arrow_drop_down.svg'); /* Иконка красной стрелочки */
+    background-repeat: no-repeat;
+    background-position: right 32px center;
+    background-size: 32px;
+    transition: background-image 0.3s ease, background-color 0.3s ease; /* Плавное изменение стрелки и фона */
+}
+
+/* Стиль для активного элемента select */
+select:focus {
+    outline: none;
+    background-color: #EDF0F5; /* Оставляем такой же фон при фокусе */
+    background-image: url('/static/icons/arrow_drop_down_open.svg'); /* Путь к перевёрнутой стрелочке */
+}
+
+/* Стили для всех вариантов */
+select option {
+    display: flex;
+    width: 100%;
+    background-color: #EDF0F5; /* Цвет фона для всех вариантов */
+    color: #000;
+    padding: 32px;
+    gap: 12px;
+    transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+}
+
+/* Стиль при наведении на опцию */
+select option:hover {
+    background-color: #fff; /* Фон при наведении */
+}
+
+/* Стили для выбранной опции (чтобы она выделялась) */
+select option:checked {
+    background-color: #fff; /* Цвет фона для активного элемента */
+}
+
+/* Для IE и Edge - убираем стандартный вид стрелки */
+select::-ms-expand {
+    display: none;
+}
+
+.verification_code {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    padding: 32px;
+    background-color: #EDF0F5;
+    border-radius: 34px;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    padding: 18px 24px;
+    border-radius: 100px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F7F9FC;
+    justify-content: center;
+    align-items: center;
+}
+
+.check {
+    height: 32px;
+}
+
+.btn_red {
+    background-color: #DE3933;
+}
+
+.white_block {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.red_block {
+    display: flex;
+    flex-direction: column;
+    background-color: #DE3933;
+}
+
+.blue_block {
+    display: flex;
+    flex-direction: column;
+    background-color: #336CDE;
+}
+
+.green_block {
+    display: flex;
+    flex-direction: column;
+    background-color: #2BD66A;
+}
+
+.competence {
+    color: #F7F9FC;
+}
+
+.achive {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quest {
+    color: #F7F9FC99;
+    opacity: 60%;
+}
+
+.elipse {
+    height: 42px;
+}
+
+.about_pokemon {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pokemon_card {
+    display: flex;
+    gap: 20px;
+}
+
+.pokemon {
+    height: 285px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    border-radius: 16px ;
+}
+
+.bk_red {
+    background-color: #F26455;
+}
+
+.bk_blue {
+    background-color: #5589F2;
+}
+
+.bk_green {
+    background-color: #51E58C;
+}
+
+.black {
+    color: #17181A;
+}
+
+.rating {
+    background-color: #17181A;
+    color: #F7F9FC;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pokemon_icon {
+    height: 60px;
+}
+
+.title_text {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.arrow {
+    display: flex;
+    border: 3px solid #17181A;
+    border-radius: 100px;
+    padding: 14px;
+    gap: 10px;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 36px;
+    border-radius: 78px 78px 0px 0px;
+    padding: 36px;
+    gap: 20px;
+    background-color: #EDF0F5;
+}
+
+.marg {
+    margin-top: 160px;
+}
+
+.disp_off {
+    display: none;
+}
+
+.left_block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.white_text {
+    color: #F7F9FC;
+}
+
+.bk_white {
+    background-color: #F7F9FC;
+}
+
+.gray {
+    color: #6F7885;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.red_text {
+    color: #DE3933;
+}
+
+.green_text {
+    color: #94D72F;
+}
+
+.developer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #F7F9FC;
+    gap: 12px;
+    padding: 26px;
+    border-radius: 42px;
+}
+
+.disp_off {
+    display: none;
+}
+
+.person {
+    display: flex;
+    background-color: #ffff;
+    border-radius: 100px;
+}
+
+.avatar {
+    width: 70px;
+    aspect-ratio: 1;
+    border-radius: 100px;
+}
+
+.about_person {
+    display: flex;
+    flex-direction: row;
+    padding: 16px 24px 16px 20px;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 1100px) {
+    p {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    a, button {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .screen_one {
+        flex-direction: column;
+        padding: 32px;
+        gap: 12px;
+    }
+
+    .header {
+        gap: 32px;
+        padding: 16px 0px 16px 0px;
+    }
+
+    .header .not_need {
+        display: none;
+    }
+
+    .frame_block {
+        padding: 26px;
+        gap: 12px;
+    }
+
+    .menu {
+        padding: 16px 24px 16px 24px;
+        gap: 12px;
+    }
+
+    .button_block {
+        gap: 12px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .way {
+        gap: 12px;
+        padding: 16px 24px 16px 24px;
+        border-radius: 3 solid;
+    }
+
+    button {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        padding: 16px 24px 16px 24px;
+        color:#17181A;
+    }
+
+    .rotate {
+        transform: rotate(90deg);
+    }
+
+    .button_block .menu {
+        display: flex;
+    }
+
+    .arrow_red {
+        height: 24px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+    }
+
+    .left_block {
+        gap: 12px
+    }
+
+    .members_row {
+        gap: 12px;
+    }
+
+    .block {
+        padding: 26px;
+        gap: 12px;
+        border-radius: 42px;
+        width: 100%;
+    }
+
+    .order1 {
+        order: 1;
+    }
+
+    .order2 {
+        order: 2;
+    }
+
+    .exp {
+        gap: 20px;
+    }
+
+    .task_container {
+        gap: 12px;
+    }
+
+    .members_block {
+        gap: 12px;
+    }
+
+    .member {
+        gap: 8px;
+    }
+
+    .member img {
+        border-radius: 16px;
+    }
+
+    .pokemon_team {
+        padding: 26px;
+    }
+
+    .pokemon_team h1{
+        width: 296px;
+    }
+
+    .pokemon_team p {
+        width: 200px;
+    }
+
+    .elipse_team {
+        height: 28px;
+    }
+
+    .team_block {
+        gap: 24px;
+    }
+
+    .team-name {
+        font-size: 40px;
+    }
+
+    .custom-file-upload {
+        gap: 20px;
+    }
+
+    .custom-label {
+        gap: 10px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .custom-label img {
+        height: 24px;
+    }
+
+    .text-input {
+        font-size: 16px;
+    }
+
+    .right {
+        padding: 0;
+        gap: 16px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .top {
+        gap: 12px;
+    }
+
+    select {
+        padding: 26px;
+        font-size: 16px;
+        font-weight: 600;
+        gap: 24px;
+        border-radius: 28px;
+        background-position: right 32px center;
+        background-size: 24px;
+    }
+
+    select option {
+        padding: 26px;
+        gap: 24px;
+    }
+
+    .verification_code {
+        gap: 24px;
+        padding: 26px;
+        border-radius: 42px;
+    }
+
+    .btn {
+        gap: 12px;
+        padding: 16px 24px;
+        border-radius: 100px;
+        font-size: 16px;
+    }
+
+    .check {
+        height: 24px;
+    }
+
+    .space {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .red_block, .blue_block, .green_block {
+        gap: 24px;
+    }
+
+    .white_block {
+        flex-direction: row;
+        gap: 24px;
+        padding: 26px;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .achive {
+        gap: 12px;
+    }
+
+    .elipse {
+        height: 42px;
+    }
+
+    .text {
+        gap: 4px;
+    }
+
+    .about_pokemon {
+        gap: 12px;
+    }
+
+    .pokemon_card {
+            gap: 24px;
+        }
+
+    .skill {
+        border-radius: 16px;
+        gap: 4px;
+        padding: 12px;
+    }
+
+    .pokemon {
+        height: 145px;
+    }
+
+    .w100 {
+        width: 400px;
+    }
+
+    .pokemon_icon {
+        height: 44px;
+    }
+
+    .arrow {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .arrow_img {
+        height: 24px;
+    }
+
+    .footer {
+        margin-top: 120px;
+        flex-direction: column;
+        gap: 12px;
+        padding: 32px;
+        border-radius: 74px 74px 0px 0px;
+    }
+
+    .developer {
+        display: none;
+    }
+
+    .disp_off {
+        display: flex;
+    }
+}
+
+@media (max-width: 620px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    a, button {
+        font-size: 12px;
+    }
+
+    .w100 {
+        width:100%
+    }
+
+    .screen_one {
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .hamburger {
+        width: 100%;
+        padding: 8px;
+        border-radius: 0;
+    }
+
+    .frame_block {
+        padding: 18px;
+        gap: 16px;
+    }
+
+    .way {
+        padding: 6px 12px 6px 12px;
+        gap: 8px;
+    }
+
+    .header {
+        padding: 12px 0px 12px 0px;
+        gap: 27px;
+    }
+
+    .hi {
+        width: 100%;
+    }
+
+    .header .not_need_two {
+        display: none;
+    }
+
+    .button_block {
+        gap: 8px;
+        width: 100%;
+    }
+
+    button {
+        gap: 8px;
+        padding: 6px 12px 6px 12px;
+    }
+
+    .button_icon {
+        height: 18px;
+        aspect-ratio: 1;
+    }
+
+    .logo {
+        height: 55px;
+        border-radius: 15px;
+    }
+
+    .row {
+        gap: 4px;
+    }
+
+    .members_row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .block {
+        gap: 8px;
+        padding: 18px;
+        border-radius: 34px;
+    }
+
+    .exp {
+        border-radius: 16px;
+        gap: 16px;
+    }
+
+    .task_container {
+        gap: 8px;
+    }
+
+    .members_block {
+        gap: 8px;
+    }
+
+    .member {
+        gap: 4px;
+    }
+
+    .pokemon_team h1{
+        width: 116px;
+    }
+
+    .pokemon_team p {
+        width: 120px;
+    }
+
+    .pokemon_img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        aspect-ratio: 1;
+        height: 120%;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: -1%;
+    }
+
+    .pokemon_img img {
+        width: 100%;
+    }
+
+    .elipse_team {
+        height: 28px;
+    }
+
+    .team_block {
+        gap: 24px;
+    }
+
+    .team-name {
+        font-size: 24px;
+    }
+
+    .custom-file-upload {
+        gap: 8px;
+    }
+
+    .custom-label {
+        gap: 10px;
+        padding: 13px;
+        border-radius: 16px;
+    }
+
+    .custom-label img {
+        height: 18px;
+    }
+
+    .text-input {
+        font-size: 12px;
+    }
+
+    .right {
+        padding: 0;
+        gap: 8px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .top {
+        gap: 4px;
+    }
+
+    select {
+        padding: 18px;
+        font-size: 12px;
+        gap: 8px;
+        border-radius: 20px;
+        background-position: right 18px center;
+        background-size: 18px;
+    }
+
+    select option {
+        padding: 18px;
+        gap: 8px;
+    }
+
+    .verification_code {
+        gap: 8px;
+        padding: 18px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .btn {
+        gap: 8px;
+        padding: 12px 6px;
+        font-size: 12px;
+    }
+
+    .check {
+        height: 18px;
+    }
+
+    .space {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .red_block, .blue_block, .green_block {
+        gap: 16px;
+    }
+
+    .achive {
+        gap: 8px;
+    }
+
+    .elipse {
+        height: 34px;
+    }
+
+    .text {
+        gap: 2px;
+    }
+
+    .white_block {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .about_pokemon {
+        gap: 8px;
+    }
+
+    .pokemon_card {
+        gap: 16px;
+        flex-direction: row-reverse;
+    }
+
+    .pokemon {
+        height: 120px;
+    }
+
+    .skill {
+        gap: 4px;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .arrow {
+        border: 1.4px solid #17181A;
+        gap: 10px;
+        padding: 6px;
+    }
+
+    .pokemon_icon {
+        height: 30px;
+    }
+
+    .arrow_img {
+        height: 18px;
+    }
+
+    .footer {
+        margin-top: 80px;
+        padding: 8px;
+        gap: 4px;
+        border-radius: 32px 32px 0px 0px;
+    }
+
+    .left_block {
+        gap: 4px;
+    }
+
+    .about_person {
+        padding: 14px 18px 14px 12px;
+        gap: 14px;
+    }
+
+    .avatar {
+        width: 44px;
+    }
+}

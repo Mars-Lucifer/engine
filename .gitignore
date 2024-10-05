@@ -1,0 +1,6 @@
+# Игнорировать содержимое папки /static/uploads, но не саму папку
+/static/uploads/*
+!/static/uploads/.gitkeep
+
+# Игнорировать файл db.json
+db.json
