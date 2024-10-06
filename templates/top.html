@@ -40,7 +40,7 @@
         {% for i in range(0, teams|length, 2) %}
             <div class="row">
                 <!-- Первая команда в строке -->
-                <div class="block string">
+                <button onclick="location.href = `/command/{{ teams[i]['id'] }}`" class="block string">
                     <div class="main">
                         <div class="box-20 box-top">
                             <h1>{{ teams[i]['team_name'] }}</h1>
@@ -94,11 +94,11 @@
                         {% endif %}
                         </p>
                     </div>                    
-                </div>
+                </button>
 
                 <!-- Вторая команда в строке, если существует -->
                 {% if i + 1 < teams|length %}
-                <div class="block string">
+                <button onclick="location.href = `/command/{{ teams[i + 1]['id'] }}`" class="block string">
                     <div class="main">
                         <div class="box-20 box-top">
                             <h1>{{ teams[i + 1]['team_name'] }}</h1>
@@ -153,7 +153,7 @@
                         </p>
                     </div>
                     
-                </div>
+                </button>
                 {% else %}
                 <!-- Если второй команды нет, добавляем пустой блок -->
                 <div class="block white_block invisible"></div>
