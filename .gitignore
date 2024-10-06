@@ -4,3 +4,5 @@
 
 # Игнорировать файл db.json
 db.json
+
+venv/
