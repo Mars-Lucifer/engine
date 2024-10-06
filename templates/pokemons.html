@@ -15,8 +15,8 @@
             <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
-        <a href="" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
-        <a href="" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/top" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/pok" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
         </div>
     </div>
     <div class="screen_one">
@@ -35,46 +35,28 @@
             <div class="block white_block">
                 <div class="about_pokemon">
                     <h1>Макималятор</h1>
-                    <p>Выполнить группу ачивок “Командная работа”</p>
+                    <p>Выполнить 1, 2 и 3 задания</p>
                 </div>
                 <div class="pokemon_card">
                     <div class="skill bk_red">
                         <h3>Навык</h3>
-                        <p class="white_text">Способен забирать очки других команд</p>
+                        <p class="white_text">Даёт бонус, +20% ко всем новым очкам</p>
                     </div>
                     <img class="pokemon" src="{{ url_for('static', filename='/img/makimalator_red.png') }}" alt="">
                 </div>
             </div>
             <div class="block white_block">
                 <div class="about_pokemon">
-                    <h1>Макималятор</h1>
-                    <p>Выполнить группу ачивок “Командная работа”</p>
+                    <h1>Рефлексис</h1>
+                    <p>Выполнить 4, 5 и 6 задания</p>
                 </div>
                 <div class="pokemon_card">
                     <div class="skill bk_blue">
                         <h3>Навык</h3>
-                        <p class="white_text">Способен забирать очки других команд</p>
+                        <p class="white_text">В конце игры дает +25% ко всем очкам команды</p>
                     </div>
                     <img class="pokemon" src="{{ url_for('static', filename='/img/makimalator_blue.png') }}" alt="">
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="block white_block">
-                <div class="about_pokemon">
-                    <h1>Макималятор</h1>
-                    <p>Выполнить группу ачивок “Командная работа”</p>
-                </div>
-                <div class="pokemon_card">
-                    <div class="skill bk_green">
-                        <h3>Навык</h3>
-                        <p class="white_text">Способен забирать очки других команд</p>
-                    </div>
-                    <img class="pokemon" src="{{ url_for('static', filename='/img/makimalator_green.png') }}" alt="">
-                </div>
-            </div>
-            <div class="block white_block invisible">
-
             </div>
         </div>
     </div>
@@ -82,7 +64,9 @@
     <div class="footer marg">
         <div class="left_block">
             <div class="block bk_white">
-                <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                <a href="https://vk.com/mypervie31?from=search">
+                    <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                </a>
             </div>
             <div class="block bk_white disp_off">
                 <h1>Разработчики</h1>
@@ -93,8 +77,8 @@
                         <p class="job">Дизайнер</p>
                     </div>
                 </a>
-                <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                     <div class="about_person">
                         <p class="name"><b>Klaudy</b></p>
                         <p class="job">Художник</p>
@@ -109,7 +93,9 @@
                 </a>
             </div>
             <div class="block bk_white">
-                <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                <a href="https://irminsul.space/">
+                    <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                </a>
             </div>
         </div>
         <div class="block developer bk_white">
@@ -121,8 +107,8 @@
                     <p class="job">Дизайнер</p>
                 </div>
             </a>
-            <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+            <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                 <div class="about_person">
                     <p class="name"><b>Klaudy</b></p>
                     <p class="job">Художник</p>

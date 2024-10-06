@@ -74,8 +74,8 @@
                             {% endif %}
                     
                             {% if teams[i]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
-                                <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
+                                <div class="pokemon_circle blue_circle">
+                                    <img src="{{ url_for('static', filename='/img/reflexis_top.png') }}" alt="reflexis">
                                 </div>
                             {% endif %}
                         </div>
@@ -132,8 +132,8 @@
                             {% endif %}
                     
                             {% if teams[i + 1]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
-                                <div class="pokemon_circle">
-                                    <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
+                                <div class="pokemon_circle blue_circle">
+                                    <img src="{{ url_for('static', filename='/img/reflexis_top.png') }}" alt="reflexis">
                                 </div>
                             {% endif %}
                         </div>
@@ -170,7 +170,9 @@
     <div class="footer marg">
         <div class="left_block">
             <div class="block bk_white">
-                <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                <a href="https://vk.com/mypervie31?from=search">
+                    <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                </a>
             </div>
             <div class="block bk_white disp_off">
                 <h1>Разработчики</h1>
@@ -181,8 +183,8 @@
                         <p class="job">Дизайнер</p>
                     </div>
                 </a>
-                <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                     <div class="about_person">
                         <p class="name"><b>Klaudy</b></p>
                         <p class="job">Художник</p>
@@ -197,7 +199,9 @@
                 </a>
             </div>
             <div class="block bk_white">
-                <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                <a href="https://irminsul.space/">
+                    <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                </a>
             </div>
         </div>
         <div class="block developer bk_white">
@@ -209,8 +213,8 @@
                     <p class="job">Дизайнер</p>
                 </div>
             </a>
-            <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+            <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                 <div class="about_person">
                     <p class="name"><b>Klaudy</b></p>
                     <p class="job">Художник</p>

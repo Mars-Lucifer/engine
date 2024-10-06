@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мероприятие</title>
+    <title>Команда Первых</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='/icons/icon.ico') }}" type="image/x-icon">
 </head>
@@ -15,8 +15,8 @@
             <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
-        <a href="" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
-        <a href="" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/top" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/pok" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
         </div>
     </div>
     <div class="screen_one">
@@ -32,11 +32,11 @@
         </div>
         <!-- Начало -->
         <div class="row">
-            <a class="block">
+            <a href="/" class="block">
                 <h1>О мероприятии</h1>
                 <p class="w100">Добро пожаловать на сайт мероприятия Движения первых! Здесь ты можешь узнать все фишки этого мероприятия</p>
             </a>
-            <a class="block rating">
+            <a href="/top" class="block rating">
                 <h1 class="rating" >Рейтинг</h1>
                 <p class="w100">Это общий показатель прогресса команды, чем он больше - тем круче команда.<br>
                     Рейтинг дается за выполнение заданий и ачивки</p>
@@ -53,7 +53,7 @@
                         <img class="arrow_img" src="{{ url_for('static', filename='/icons/arrow_outward.svg') }}" alt="">
                     </div>
                 </div>
-                <p class="w100">Это награды, дающиеся за дополнительные старания во время мероприятия. Они не просто дают прибавку рейтинга, но и открывают покемонов!</p>
+                <p class="w100">Это награды которые даются за выполнение заданий сайта. Они дают свои бонусы и сильно помогут увеличить рейтинг команды</p>
             </a>
             <div class="block white_block invisible"></div>
         </div>
@@ -62,7 +62,9 @@
     <div class="footer">
         <div class="left_block">
             <div class="block bk_white">
-                <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                <a href="https://vk.com/mypervie31?from=search">
+                    <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                </a>
             </div>
             <div class="block bk_white disp_off">
                 <h1>Разработчики</h1>
@@ -73,8 +75,8 @@
                         <p class="job">Дизайнер</p>
                     </div>
                 </a>
-                <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                     <div class="about_person">
                         <p class="name"><b>Klaudy</b></p>
                         <p class="job">Художник</p>
@@ -89,7 +91,9 @@
                 </a>
             </div>
             <div class="block bk_white">
-                <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                <a href="https://irminsul.space/">
+                    <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                </a>
             </div>
         </div>
         <div class="block developer bk_white">
@@ -101,8 +105,8 @@
                     <p class="job">Дизайнер</p>
                 </div>
             </a>
-            <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+            <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                 <div class="about_person">
                     <p class="name"><b>Klaudy</b></p>
                     <p class="job">Художник</p>

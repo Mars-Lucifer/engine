@@ -15,8 +15,8 @@
             <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
-        <a href="" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
-        <a href="" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/top" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/pok" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
         </div>
     </div>
     <div class="screen_one">
@@ -81,7 +81,7 @@
                 <div class="pokemon_team" style="display: {% if pokemons[0] == 1 %}block{% else %}none{% endif %};">
                     <div class="about_pokemon">
                         <h1 class="white_text">Макималятор</h1>
-                        <p class="white_text">Способен забирать очки других команд</p>
+                        <p class="white_text">Дает +20% к новым очкам команды</p>
                     </div>
                     <div class="pokemon_img">
                         <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="Макималятор">
@@ -89,27 +89,15 @@
                 </div>
             
                 <!-- Покемон 2 -->
-                <div class="pokemon_team" style="display: {% if pokemons[1] == 1 %}block{% else %}none{% endif %};">
+                <div class="pokemon_team blue_pok" style="display: {% if pokemons[1] == 1 %}block{% else %}none{% endif %};">
                     <div class="about_pokemon">
-                        <h1 class="white_text">Макималятор 2</h1>
-                        <p class="white_text">Способен забирать очки других команд</p>
+                        <h1 class="white_text">Рефлексис</h1>
+                        <p class="white_text">Дает +25% ко всем очкам команды, в конце игры</p>
                     </div>
                     <div class="pokemon_img">
-                        <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="Макималятор 2">
+                        <img src="{{ url_for('static', filename='/img/reflexis.png') }}" alt="Макималятор 2">
                     </div>
-                </div>
-            
-                <!-- Покемон 3 -->
-                <div class="pokemon_team" style="display: {% if pokemons[2] == 1 %}block{% else %}none{% endif %};">
-                    <div class="about_pokemon">
-                        <h1 class="white_text">Макималятор 3</h1>
-                        <p class="white_text">Способен забирать очки других команд</p>
-                    </div>
-                    <div class="pokemon_img">
-                        <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="Макималятор 3">
-                    </div>
-                </div>
-            
+                </div>            
             </div>
             <div class="block white_block invisible"></div>
         </div>
@@ -119,7 +107,9 @@
     <div class="footer marg">
         <div class="left_block">
             <div class="block bk_white">
-                <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                <a href="https://vk.com/mypervie31?from=search">
+                    <h1>При поддержке<br><span class="red_text">Движения первых</span></h1>
+                </a>
             </div>
             <div class="block bk_white disp_off">
                 <h1>Разработчики</h1>
@@ -130,8 +120,8 @@
                         <p class="job">Дизайнер</p>
                     </div>
                 </a>
-                <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+                <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                    <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                     <div class="about_person">
                         <p class="name"><b>Klaudy</b></p>
                         <p class="job">Художник</p>
@@ -146,7 +136,9 @@
                 </a>
             </div>
             <div class="block bk_white">
-                <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                <a href="https://irminsul.space/">
+                    <h1>Сайт инициирован<br><span class="green_text">Ирминсулем</span></h1>
+                </a>
             </div>
         </div>
         <div class="block developer bk_white">
@@ -158,8 +150,8 @@
                     <p class="job">Дизайнер</p>
                 </div>
             </a>
-            <a target="_blank" href="https://mars-lucifer.ru" class="person">
-                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="luci_ava">
+            <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                 <div class="about_person">
                     <p class="name"><b>Klaudy</b></p>
                     <p class="job">Художник</p>

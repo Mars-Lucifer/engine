@@ -234,6 +234,10 @@ a, button {
     backdrop-filter: blur(13.794118881225586px)
 }
 
+.blue_pok {
+    background: linear-gradient(104.04deg, #C8E3D2 0%, #8CCCE9 100%);
+}
+
 .pokemon_team h1{
     width: 340px;
 }
@@ -502,7 +506,7 @@ select::-ms-expand {
 }
 
 .bk_blue {
-    background-color: #5589F2;
+    background-color: #8CCCE9;
 }
 
 .bk_green {
@@ -733,6 +737,10 @@ select::-ms-expand {
     backdrop-filter: blur(3px);
     border: 3px #EDF0F5 solid;
     z-index: 1; /* Второй покемон будет ниже по слою */
+}
+
+.blue_circle {
+    background: #C8E3D2B2;
 }
 
 .pokemon_circle:first-child {
