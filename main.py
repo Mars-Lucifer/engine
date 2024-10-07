@@ -10,7 +10,7 @@ from datetime import datetime
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 
-CODE = "0777"
+CODE = "7842"
 app = Flask(__name__)
 
 # Путь для сохранения аватаров

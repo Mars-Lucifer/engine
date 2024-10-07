@@ -224,18 +224,25 @@ a, button {
 
 .pokemon_team {
     overflow: hidden;
-    aspect-ratio: 3/1;
     width: 100%;
+    min-height: 210px;
     border-radius: 24px;
     padding: 26px;
     justify-content: space-between;
     display: flex;
-    background: linear-gradient(104.04deg, #FFD8B4 0%, #F26455 100%);
-    backdrop-filter: blur(13.794118881225586px)
+    backdrop-filter: blur(13.794118881225586px);
+    background-position: center;
+    background-size: cover;
 }
 
-.blue_pok {
-    background: linear-gradient(104.04deg, #C8E3D2 0%, #8CCCE9 100%);
+.pokemon_team_bac1 {
+    background-color: #F26455;
+    background-image: url('/static/img/bac_1.svg');
+}
+
+.pokemon_team_bac2 {
+    background-color: #C8E3D2;
+    background-image: url('/static/img/bac_2.svg');
 }
 
 .pokemon_team h1{
@@ -255,7 +262,8 @@ a, button {
     height: 120%;
     top: 50%;
     transform: translate(0, -50%);
-    right: -1%;
+    right: -2%;
+    z-index: -1;
 }
 
 .pokemon_img img {
@@ -1113,15 +1121,9 @@ select::-ms-expand {
     }
     
     .pokemon_circle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 8px 26px;
-        border-radius: 100px;
-        background-color: #F3CECEB3;
         backdrop-filter: blur(3px);
         border: 3px #EDF0F5 solid;
-        z-index: 1; /* Второй покемон будет ниже по слою */
     }
     
     .pokemon_circle:nth-child(2){
@@ -1247,6 +1249,10 @@ select::-ms-expand {
         gap: 4px;
     }
 
+    .pokemon_team {
+        min-height: 120px;
+    }
+
     .pokemon_team h1{
         width: 116px;
     }
@@ -1264,7 +1270,7 @@ select::-ms-expand {
         height: 120%;
         top: 50%;
         transform: translate(0, -50%);
-        right: -1%;
+        right: -10%;
     }
 
     .pokemon_img img {
