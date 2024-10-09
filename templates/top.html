@@ -16,7 +16,7 @@
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
         <a href="/top" class="way">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
-        <a href="/pok" class="way">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
+        <a href="/pok" class="way">Движики<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt=""></a>
         </div>
     </div>
     <div class="screen_one">
@@ -26,7 +26,7 @@
                 <a href="/" class="way not_need">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
                 <a href="/top" class="way not_need_two">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
                 <button onclick="opens()" class="menu">Меню<img class="button_icon rotate" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt="стрелка"></button>
-                <a href="/pok" class="way not_need">Покемоны<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
+                <a href="/pok" class="way not_need">Движики<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
                 <img src="{{ url_for('static', filename='/icons/logo.png') }}" alt="logo" class="logo">
             </div>
         </div>
@@ -67,30 +67,30 @@
                     </div>
                     <div class="box-20 box-bottom">
                         <div class="pokemon_circe_box">
-                            {% if teams[i]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый покемон #}
+                            {% if teams[i]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый Движик #}
                                 <div class="pokemon_circle">
                                     <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
                     
-                            {% if teams[i]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
+                            {% if teams[i]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй Движик #}
                                 <div class="pokemon_circle blue_circle">
                                     <img src="{{ url_for('static', filename='/img/reflexis_top.png') }}" alt="reflexis">
                                 </div>
                             {% endif %}
                         </div>
                     
-                        {# Получаем количество покемонов #}
+                        {# Получаем количество Движиков #}
                         {% set pokemon_count = teams[i]['pokemons'] | select("equalto", 1) | list | length | int %}
                     
-                        {# Выводим текст с правильным склонением слова "покемон" #}
+                        {# Выводим текст с правильным склонением слова "Движик" #}
                         <p class="black nowrap"><span class="red_text">{{ pokemon_count }}</span> 
                         {% if pokemon_count == 1 %}
-                            покемон
+                            Движик
                         {% elif pokemon_count == 2 %}
-                            покемона
+                            Движика
                         {% else %}
-                            покемонов
+                            Движиков
                         {% endif %}
                         </p>
                     </div>                    
@@ -125,30 +125,30 @@
                     </div>
                     <div class="box-20 box-bottom">
                         <div class="pokemon_circe_box">
-                            {% if teams[i + 1]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый покемон #}
+                            {% if teams[i + 1]['pokemons'][0] == 1 %}  {# Проверяем, есть ли первый Движик #}
                                 <div class="pokemon_circle">
                                     <img src="{{ url_for('static', filename='/img/makimalator_top.png') }}" alt="makimalator">
                                 </div>
                             {% endif %}
                     
-                            {% if teams[i + 1]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй покемон #}
+                            {% if teams[i + 1]['pokemons'][1] == 1 %}  {# Проверяем, есть ли второй Движик #}
                                 <div class="pokemon_circle blue_circle">
                                     <img src="{{ url_for('static', filename='/img/reflexis_top.png') }}" alt="reflexis">
                                 </div>
                             {% endif %}
                         </div>
                     
-                        {# Получаем количество покемонов и приводим его к целому числу #}
+                        {# Получаем количество Движиков и приводим его к целому числу #}
                         {% set pokemon_count = teams[i + 1]['pokemons'] | select("equalto", 1) | list | length | int %}
                     
-                        {# Выводим текст с правильным склонением слова "покемон" #}
+                        {# Выводим текст с правильным склонением слова "Движик" #}
                         <p class="black nowrap"><span class="red_text">{{ pokemon_count }}</span> 
                         {% if pokemon_count == 1 %}
-                            покемон
+                            Движик
                         {% elif pokemon_count > 1 and pokemon_count < 5 %}
-                            покемона
+                            Движика
                         {% else %}
-                            покемонов
+                            Движиков
                         {% endif %}
                         </p>
                     </div>
@@ -183,7 +183,7 @@
                         <p class="job">Дизайнер</p>
                     </div>
                 </a>
-                <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+                <a target="_blank" href="https://t.me/KlaudyStorage" class="person">
                     <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                     <div class="about_person">
                         <p class="name"><b>Klaudy</b></p>
@@ -213,7 +213,7 @@
                     <p class="job">Дизайнер</p>
                 </div>
             </a>
-            <a target="_blank" href="https://t.me/Klaudy_31" class="person">
+            <a target="_blank" href="https://t.me/KlaudyStorage" class="person">
                 <img class="avatar" src="{{ url_for('static', filename='/img/klaudy.png') }}" alt="klaudy_ava">
                 <div class="about_person">
                     <p class="name"><b>Klaudy</b></p>
