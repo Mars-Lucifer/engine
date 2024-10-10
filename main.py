@@ -57,7 +57,6 @@ def create_team():
     if request.method == 'POST':
         # Получаем данные формы
         team_name = request.form['team_name']
-        competency = request.form['competency']
         verification_code = request.form['verification_code']
 
         if verification_code == CODE:
@@ -91,7 +90,6 @@ def create_team():
             team_data = {
                 'id': team_id,
                 'team_name': team_name,
-                'competency': competency,
                 'members': members,
                 'points': 0,
                 'tasks': [
@@ -101,7 +99,8 @@ def create_team():
                     [0, "Снять рилс «5 плюсов учебы в «название образовательной организации» или «почему я активист движения первых»"],
                     [0, "Командная история, участникам требуется составить увлекательную и небольшую историю, снятую на видео. Где каждый участник по очереди продолжает историю пока все не выскажутся"],
                     [0, "Нарисовать общий рисунок команды на любую социальную тему"],
-                    [0, "Придумать гимн/песню для своей команды"]
+                    [0, "Придумать гимн/песню для своей команды"],
+                    [0, "Сделать фотографию возле флага Движения Первых всей командой"]
                 ],
                 'pokemons': [0, 0]
             }
@@ -225,13 +224,6 @@ def edit(team_id):
                         file_path = file_path.replace('\\', '/')
 
                         team['members'][i-1]['avatar_path'] = file_path
-
-                # Изменяем компетенцию
-                komp = request.form.get('competency')
-                if komp != "":
-                    team['competency'] = komp
-                else:
-                    pass
 
                 # Сохраняем обновленную команду
                 save_db(data)

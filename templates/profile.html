@@ -21,7 +21,10 @@
     </div>
     <div class="screen_one">
         <div class="header">
-            <p class="hi">Команда</p>
+            <div class="header_logo_block">
+                <img class="logo poko_logo" src="{{ url_for('static', filename='/img/dvishok.png') }}" alt="dvishok">
+                <p class="hi">Команда</p>
+            </div>
             <div class="button_block">
                 <a href="/" class="way not_need">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
                 <a href="/top" class="way not_need_two">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
@@ -33,7 +36,6 @@
         <!-- Начало -->
         <div class="row">
             <div class="block bk_white">
-                <h3 class="gray">{{ team['competency'] }}</h3>
                 <h1>{{ team['team_name'] }}</h1>
                 <div class="exp">
                     <h3>Очки: {{ team['points'] }}</h3>
@@ -41,7 +43,9 @@
                     {% for task in team['tasks'] %}
                     <div class="task_container {% if task[0] == 1 %}done{% else %}not_done{% endif %}">
                         <div class="circle"></div>
-                        <p class="{% if task[0] == 1 %}white_text{% endif %}">{{ task[1] }}</p>
+                        <p class="{% if task[0] == 1 %}white_text{% endif %}">
+                            {{ task[1] }} <span class="countdown"></span>
+                        </p>
                     </div>
                     {% endfor %}
                 </div>                
@@ -166,6 +170,39 @@
             </a>
         </div>
     </div>
+    <script>
+        // Указываем конечную дату и время (11 октября 17:00)
+        const endTime = new Date('2024-10-11T17:00:00');
+        // const endTime = new Date('2024-10-10T22:04:00');
+
+        // Функция для обновления обратного отсчета
+        function updateCountdown() {
+            const now = new Date();
+            const remainingTime = endTime - now;
+
+            let countdownText;
+
+            if (remainingTime > 0) {
+                const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                countdownText = `(${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')})`;
+            } else {
+                countdownText = '(задание завершено)';
+            }
+
+            // Находим последний элемент p и обновляем таймер внутри <span class="countdown">
+            const lastTaskCountdown = document.querySelectorAll('.task_container .countdown');
+            if (lastTaskCountdown.length > 0) {
+                lastTaskCountdown[lastTaskCountdown.length - 1].textContent = countdownText;
+            }
+        }
+
+        // Обновляем каждую секунду
+        setInterval(updateCountdown, 1000);
+    </script>
+    
     <script src="{{ url_for('static', filename='/main.js') }}"></script>
 </body>
 </html>
