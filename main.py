@@ -268,6 +268,10 @@ def top():
     # Отправляем отсортированные данные в шаблон
     return render_template('top.html', teams=sorted_teams)
 
+@app.route('/talisman')
+def talisman():
+    return render_template('/talisman.html')
+
 
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():

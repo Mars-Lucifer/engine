@@ -21,7 +21,10 @@
     </div>
     <div class="screen_one">
         <div class="header">
-            <p class="hi">Привет! 👋 Я Движок, образовательная игра</p>
+            <div class="header_logo_block">
+                <p class="hi">Привет! 👋 Я Движок, образовательная игра</p>
+                <img src="/static/img/talisman.png" alt="talisman" class="logo poko_logo">
+            </div>
             <div class="button_block">
                 <a href="/" class="way not_need">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
                 <a href="/top" class="way not_need_two">Топ команд<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
@@ -55,7 +58,17 @@
                 </div>
                 <p class="w100">Это награды которые даются за выполнение заданий сайта. Они дают свои бонусы и сильно помогут увеличить рейтинг команды</p>
             </a>
-            <div class="block white_block invisible"></div>
+            <a href="/talisman" class="block">
+                <div class="title">
+                    <div class="title_text">
+                        <h1>Наш талисман</h1>
+                    </div>
+                    <div class="arrow">
+                        <img class="arrow_img" src="{{ url_for('static', filename='/icons/arrow_outward.svg') }}" alt="">
+                    </div>
+                </div>
+                <p class="w100">Познакомьтесь с нашим талисманом — сурикатом! Этот смелый и всегда внимательный зверёк олицетворяет Движение Первых</p>
+            </a>
         </div>
     </div>
     <!-- Конец -->

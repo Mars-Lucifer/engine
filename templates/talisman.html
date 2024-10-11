@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Команда {{ team['team_name'] }}</title>
+    <title>Команда Первых</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='/icons/icon.ico') }}" type="image/x-icon">
 </head>
@@ -22,7 +22,7 @@
     <div class="screen_one">
         <div class="header">
             <div class="header_logo_block">
-                <p class="hi">Команда</p>
+                <p class="hi">Наш талисман</p>
                 <img src="/static/img/talisman.png" alt="talisman" class="logo poko_logo">
             </div>
             <div class="button_block">
@@ -34,81 +34,25 @@
             </div>
         </div>
         <!-- Начало -->
-        <div class="row">
-            <div class="block bk_white">
-                <h1>{{ team['team_name'] }}</h1>
-                <div class="exp">
-                    <h3>Очки: {{ team['points'] }}</h3>
-                    
-                    {% for task in team['tasks'] %}
-                    <div class="task_container {% if task[0] == 1 %}done{% else %}not_done{% endif %}">
-                        <div class="circle"></div>
-                        <p class="{% if task[0] == 1 %}white_text{% endif %}">
-                            {{ task[1] }} <span class="countdown"></span>
-                        </p>
-                    </div>
-                    {% endfor %}
-                </div>                
-            </div>
-            <div class="block white_block column">
-                <h1>Участники</h1>
-                <div class="members_block">
-                    <div class="members_row">
-                        {% for member in team['members'] %}
-                            {% if loop.index <= 2 %}
-                                <div class="member">
-                                    <img src="{{ url_for('static', filename=member['avatar_path'][7:]) }}" alt="ava">
-                                    <p>{{ member['name'] }}</p>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
 
-                    <div class="members_row">
-                        {% for member in team['members'] %}
-                            {% if loop.index > 2 %}
-                                <div class="member">
-                                    <img src="{{ url_for('static', filename=member['avatar_path'][7:]) }}" alt="ava">
-                                    <p>{{ member['name'] }}</p>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+        <div class="block">
+            <div class="talis_box">
+                <div class="talisman">
+                    <img src="{{ url_for('static', filename='/img/talisman.png') }}" alt="talisman">
+                </div>
+                <div class="member talis_block">
+                    <img src="{{ url_for('static', filename='/img/qr-code-1.svg') }}" alt="qr-code">
+                    <p>ВК группа</p>
+                </div>
+                <div class="member talis_block">
+                    <img src="{{ url_for('static', filename='/img/qr-code-2.svg') }}" alt="qr-code">
+                    <p>Студенческий чат в тг</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="block white_block order2 column">
-                <h1>Движики</h1>
-            
-                <!-- Движик 1 -->
-                <div class="pokemon_team pokemon_team_bac1" style="display: {% if pokemons[0] == 1 %}block{% else %}none{% endif %};">
-                    <div class="about_pokemon">
-                        <h1 class="white_text">Макималятор</h1>
-                        <p class="white_text">Дает +20% к новым очкам команды</p>
-                    </div>
-                    <div class="pokemon_img">
-                        <img src="{{ url_for('static', filename='/img/makimalator.png') }}" alt="Макималятор">
-                    </div>
-                </div>
-            
-                <!-- Движик 2 -->
-                <div class="pokemon_team pokemon_team_bac2" style="display: {% if pokemons[1] == 1 %}block{% else %}none{% endif %};">
-                    <div class="about_pokemon">
-                        <h1 class="white_text">Рефлексис</h1>
-                        <p class="white_text">Дает +25% ко всем очкам команды, в конце игры</p>
-                    </div>
-                    <div class="pokemon_img">
-                        <img src="{{ url_for('static', filename='/img/reflexis_top.png') }}" alt="Макималятор 2">
-                    </div>
-                </div>            
-            </div>
-            <div class="block white_block invisible"></div>
         </div>
     </div>
-
     <!-- Конец -->
-    <div class="footer marg">
+    <div class="footer">
         <div class="left_block">
             <div class="block bk_white">
                 <a href="https://vk.com/mypervie31?from=search" target="_blank">
@@ -170,39 +114,6 @@
             </a>
         </div>
     </div>
-    <script>
-        // Указываем конечную дату и время (11 октября 17:00)
-        const endTime = new Date('2024-10-11T17:00:00');
-        // const endTime = new Date('2024-10-10T22:04:00');
-
-        // Функция для обновления обратного отсчета
-        function updateCountdown() {
-            const now = new Date();
-            const remainingTime = endTime - now;
-
-            let countdownText;
-
-            if (remainingTime > 0) {
-                const hours = Math.floor(remainingTime / (1000 * 60 * 60));
-                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-                countdownText = `(${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')})`;
-            } else {
-                countdownText = '(задание завершено)';
-            }
-
-            // Находим последний элемент p и обновляем таймер внутри <span class="countdown">
-            const lastTaskCountdown = document.querySelectorAll('.task_container .countdown');
-            if (lastTaskCountdown.length > 0) {
-                lastTaskCountdown[lastTaskCountdown.length - 1].textContent = countdownText;
-            }
-        }
-
-        // Обновляем каждую секунду
-        setInterval(updateCountdown, 1000);
-    </script>
-    
     <script src="{{ url_for('static', filename='/main.js') }}"></script>
 </body>
 </html>
