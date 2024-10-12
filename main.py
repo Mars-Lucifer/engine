@@ -179,8 +179,12 @@ def edit(team_id):
                             team['points'] = int(
                                 team['points'] + points_change)
                         else:
-                            team['points'] = int(
-                                team['points'] + points_change + ((points_change / 100) * 20))
+                            if points_change > 0:
+                                team['points'] = int(
+                                    team['points'] + points_change + ((points_change / 100) * 20))
+                            else:
+                                team['points'] = int(
+                                team['points'] + points_change)
                     except ValueError:
                         pass  # Игнорируем некорректный ввод
 
@@ -268,6 +272,7 @@ def add_bonus_points():
 
     for team in data:
         if team['pokemons'][1] == 1:
+            print(int(team['points'] * 0.25))
             team['points'] += int(team['points'] * 0.25)
 
     save_db(data)
@@ -301,7 +306,7 @@ def talisman():
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():
     # Установим точную дату и время
-    target_date = datetime(2024, 10, 12, 21, 31)
+    target_date = datetime(2024, 10, 13, 19, 0)
     current_time = datetime.now()
     
     if current_time >= target_date:
