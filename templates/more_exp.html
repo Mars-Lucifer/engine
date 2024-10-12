@@ -35,47 +35,15 @@
         </div>
         <!-- Начало -->
         <div class="row">
-            <a href="/" class="block">
-                <h1>О мероприятии</h1>
-                <p class="w100">Добро пожаловать на сайт мероприятия Движения первых! Здесь ты можешь узнать все фишки этого мероприятия</p>
-            </a>
+            <div class="task_container done">
+                <div class="circle"></div>
+                <p class="{% if task[0] == 1 %}white_text{% endif %}">1. Задание</p>
+            </div>
             <a href="/top" class="block rating">
                 <h1 class="rating" >Рейтинг</h1>
                 <p class="w100">Это общий показатель прогресса команды, чем он больше - тем круче команда.<br>
                     Рейтинг дается за выполнение заданий и ачивки</p>
             </a>
-        </div>
-        <div class="row">
-            <a href="/pok" class="block">
-                <div class="title">
-                    <div class="title_text">
-                        <img class="pokemon_icon" src="{{ url_for('static', filename='/icons/pokemon.svg') }}" alt="pokemon">
-                        <h1>Движики</h1>
-                    </div>
-                    <div class="arrow">
-                        <img class="arrow_img" src="{{ url_for('static', filename='/icons/arrow_outward.svg') }}" alt="">
-                    </div>
-                </div>
-                <p class="w100">Это награды которые даются за выполнение заданий сайта. Они дают свои бонусы и сильно помогут увеличить рейтинг команды</p>
-            </a>
-            <a href="/talisman" class="block">
-                <div class="title">
-                    <div class="title_text">
-                        <h1>Наш талисман</h1>
-                    </div>
-                    <div class="arrow">
-                        <img class="arrow_img" src="{{ url_for('static', filename='/icons/arrow_outward.svg') }}" alt="">
-                    </div>
-                </div>
-                <p class="w100">Познакомьтесь с нашим талисманом — сурикатом! Этот смелый и всегда внимательный зверёк олицетворяет Движение Первых</p>
-            </a>
-        </div>
-        <div class="row">
-            <a href="/more" class="block rating">
-                <h1 class="rating">Дополнительные задания</h1>
-                <p class="w100">Поскольку почти все команды выполнили практически все задания, мы решили порадобавать вас еще несколькими</p>
-            </a>
-            <div class="block white_block invisible"></div>
         </div>
     </div>
     <!-- Конец -->
