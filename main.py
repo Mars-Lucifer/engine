@@ -243,6 +243,7 @@ def add_bonus_points():
 
     for team in data:
         if team['pokemons'][1] == 1:
+            print(int(team['points'] * 0.25))
             team['points'] += int(team['points'] * 0.25)
 
     save_db(data)
@@ -276,7 +277,7 @@ def talisman():
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():
     # Установим точную дату и время
-    target_date = datetime(2024, 10, 12, 19, 0)
+    target_date = datetime(2024, 10, 13, 19, 0)
     current_time = datetime.now()
 
     if current_time >= target_date:
