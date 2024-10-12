@@ -691,6 +691,16 @@ select::-ms-expand {
     align-items: flex-start;
 }
 
+.box-top h1 {
+    text-align: left;
+    word-break: break-word;
+    width: 100%;
+}
+
+.break-all {
+    word-break: break-all;
+}
+
 .box-bottom {
     align-items: flex-end;
 }
