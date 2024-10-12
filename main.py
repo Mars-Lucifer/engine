@@ -302,11 +302,15 @@ def top():
 def talisman():
     return render_template('/talisman.html')
 
+@app.route('/more')
+def more():
+    return render_template('/more_exp.html')
+
 
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():
     # Установим точную дату и время
-    target_date = datetime(2024, 10, 13, 19, 0)
+    target_date = datetime(2024, 10, 13, 11, 0)
     current_time = datetime.now()
     
     if current_time >= target_date:

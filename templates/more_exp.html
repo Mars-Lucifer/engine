@@ -11,7 +11,7 @@
     <div class="hamburger" id="hamburger">
         <div class="frame_block">
             <div class="frame">
-            <h1>Движок</h1>
+            <h1>Доп задания</h1>
             <button onclick="closes()" class="menu">Закрыть<img class="button_icon" src="{{ url_for('static', filename='/icons/menu_elipses.svg') }}" alt=""></button>
         </div>
         <a href="/" class="way">Главная<img class="arrow_red" src="{{ url_for('static', filename='/icons/arrow_outward_red.svg') }}" alt="стрелка"></a>
@@ -22,7 +22,7 @@
     <div class="screen_one">
         <div class="header">
             <div class="header_logo_block">
-                <p class="hi">Привет! 👋 Я Движок, образовательная игра</p>
+                <p class="hi">Страница дополнительных заданий</p>
                 <img src="/static/img/talisman.png" alt="talisman" class="logo poko_logo">
             </div>
             <div class="button_block">
@@ -35,15 +35,30 @@
         </div>
         <!-- Начало -->
         <div class="row">
-            <div class="task_container done">
-                <div class="circle"></div>
-                <p class="{% if task[0] == 1 %}white_text{% endif %}">1. Задание</p>
+            <div class="exp">
+                <h3>Время до открытия...</h3>
+                <p id="text" class="white_text">00:00:00</p>
             </div>
-            <a href="/top" class="block rating">
-                <h1 class="rating" >Рейтинг</h1>
-                <p class="w100">Это общий показатель прогресса команды, чем он больше - тем круче команда.<br>
-                    Рейтинг дается за выполнение заданий и ачивки</p>
-            </a>
+            <div id="box" class="exp" style="display: none;">
+                <h3>Дополнительные задания</h3>
+                <div class="task_container done">
+                    <div class="circle"></div>
+                    <p class="white_text">Сфотографируйте каждого члена команды с  предметом или аксессуаром организатора</p>
+                </div>
+                <div class="task_container done">
+                    <div class="circle"></div>
+                    <p class="white_text">Сделайте совместное фото в стиле «смешная переписка» — каждый участник держит табличку с фразой</p>
+                </div>
+                <div class="task_container done">
+                    <div class="circle"></div>
+                    <p class="white_text">Запишите видео в котором вы должны взять интервью у 4 человек организаторов</p>
+                </div>
+                <div class="task_container done">
+                    <div class="circle"></div>
+                    <p class="white_text">Взять росписи у команды затупы (лист сдать программистам)</p>
+                </div>
+            </div>
+            <div id="box2" class="block white_block invisible"></div>
         </div>
     </div>
     <!-- Конец -->
@@ -109,6 +124,40 @@
             </a>
         </div>
     </div>
+
+    <script>
+        const endTime = new Date('2024-10-13T09:00:00');
+
+        // Функция для обновления обратного отсчета
+        function updateCountdown() {
+            const now = new Date();
+            const remainingTime = endTime - now;
+            let box = document.getElementById("box");
+            let box2 = document.getElementById("box2");
+
+            let countdownText;
+
+            if (remainingTime > 0) {
+                const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                countdownText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                countdownText = 'Задания доступны';
+                box.style.display = 'flex';
+                box2.style.display = 'none';
+            }
+
+            // Находим последний элемент p и обновляем таймер внутри <span class="countdown">
+            const lastTaskCountdown = document.getElementById('text');
+            lastTaskCountdown.textContent = countdownText;
+        }
+
+        // Обновляем каждую секунду
+        setInterval(updateCountdown, 1000);
+    </script>
+
     <script src="{{ url_for('static', filename='/main.js') }}"></script>
 </body>
 </html>
