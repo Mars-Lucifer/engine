@@ -154,8 +154,12 @@ def edit(team_id):
                             team['points'] = int(
                                 team['points'] + points_change)
                         else:
-                            team['points'] = int(
-                                team['points'] + points_change + ((points_change / 100) * 20))
+                            if points_change > 0:
+                                team['points'] = int(
+                                    team['points'] + points_change + ((points_change / 100) * 20))
+                            else:
+                                team['points'] = int(
+                                team['points'] + points_change)
                     except ValueError:
                         pass  # Игнорируем некорректный ввод
 
