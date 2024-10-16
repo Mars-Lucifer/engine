@@ -12,11 +12,37 @@ from werkzeug.utils import secure_filename
 
 CODE = "7842"
 app = Flask(__name__)
+EVER_ALL_FILE = 'ever_all.txt'
+
+def load_ever_all():
+    # Чтение значения из файла
+    if not os.path.exists(EVER_ALL_FILE):
+        # Если файл не существует, создаем его с значением 0
+        with open(EVER_ALL_FILE, 'w') as file:
+            file.write('0')
+        return False  # Возвращаем False, если значение 0
+
+    with open(EVER_ALL_FILE, 'r') as file:
+        value = file.read().strip()
+        return value == '1'  # Преобразуем '1' в True, '0' в False
+
+def save_ever_all(value):
+    # Сохранение значения в файл
+    with open(EVER_ALL_FILE, 'w') as file:
+        file.write('1' if value else '0')  # Сохраняем 1 для True, 0 для False
+
+# Пример изменения значения
+def update_ever_all(new_value):
+    global everAll
+    everAll = new_value
+    save_ever_all(everAll)
 
 # Путь для сохранения аватаров
 UPLOAD_FOLDER = 'static/uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
+
+everAll = load_ever_all()
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 DB_FILE = 'db.json'
@@ -40,7 +66,6 @@ def load_db():
 def save_db(data):
     with open(DB_FILE, 'w', encoding='utf-8') as db_file:
         json.dump(data, db_file, ensure_ascii=False, indent=4)
-
 
 @app.route('/')
 def home():
@@ -277,23 +302,29 @@ def top():
 def talisman():
     return render_template('/talisman.html')
 
+@app.route('/more')
+def more():
+    return render_template('/more_exp.html')
+
 
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():
     # Установим точную дату и время
     target_date = datetime(2025, 10, 13, 19, 0)
     current_time = datetime.now()
-
+    
     if current_time >= target_date:
         add_bonus_points()
+        update_ever_all(True)
         return False
 
 
 def run_scheduler():
-    while True:
-        if schedule_task():
-            break
-        time.sleep(30 * 60)  # Проверяем каждые 30 минут
+    if (not everAll):
+        while True:
+            if schedule_task():
+                break
+            time.sleep(30 * 60)  # Проверяем каждые 30 минут
 
 
 # Запуск планировщика в отдельном потоке
