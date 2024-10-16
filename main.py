@@ -281,7 +281,7 @@ def talisman():
 # Расписание задачи на 12 октября в 19:00
 def schedule_task():
     # Установим точную дату и время
-    target_date = datetime(2024, 10, 13, 19, 0)
+    target_date = datetime(2025, 10, 13, 19, 0)
     current_time = datetime.now()
 
     if current_time >= target_date:
