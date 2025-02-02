@@ -1,0 +1,6 @@
+{
+    "url": "http://127.0.0.1:5000/",
+    "xpath_1": "/html/body/div[2]/div[1]/div[2]/a[2]",
+    "xpath_2": "/html/body/div[2]/div[2]/button",
+    "link": "/command/1"
+}
